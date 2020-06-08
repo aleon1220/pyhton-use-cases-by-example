@@ -54,6 +54,8 @@ def cmd_get_db_info():
             db_container_json['Name'][1:],
             db_container_json['Config']['Labels']['com.ranqx.loan.envname'],
             ))
+    # Example of format with 2 parameters    
+    print("Branch {} File ID located at {} ".format(branch.name, str(branch.id_file)))
             
 ################################################################################
 # Main Execution
