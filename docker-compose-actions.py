@@ -20,11 +20,7 @@ Works like a charm with Bitbucket git branches
 delete and restart.
 
 Commands:
-  * deploy      - deploy a new branch or new changes on already deployed branch
-  * delete      - deletes a given branch with the proper format
-  * restart     - restarts a docker-compose stack from a given branch
-  * delete_old  - deletes branches older than 5 days
-  * get_db_info - get port, container name and env name of running stacks
+  * info - get port, container name and env name of running stacks
 
 This script must be executed on a machine configured for multi-branch
 deployment.
@@ -41,7 +37,7 @@ Requirements:
 ################################################################################
 # Shared functionality
 
-def cmd_get_db_info():
+def cmd_info():
     print("Showing MySQL ports, Deployed environment and Container name...")
     print("\n| MySQL Port |      Container     |     Environment Name   ")
     print("--"*30)
@@ -62,8 +58,8 @@ def cmd_get_db_info():
 
 try:
     aws_account = ranqxlib.get_aws_account()
-    if aws_account['name'] not in ("sandbox", "unknown"):
-        raise Exception("Multi deploys must happen in sandbox")
+    if aws_account['name'] not in ("dev", "unknown"):
+        raise Exception("Multi deploys must happen in dev")
 
     # Check command line arguments
     if len(sys.argv) <= 1:
