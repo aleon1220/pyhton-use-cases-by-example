@@ -11,25 +11,7 @@ import json
 def usage():
     print(
 """
-Manage Company docker-compose software in a multi-branch-style environment.
-Works like a charm with Bitbucket git branches
-
-    {script_name} <command> [<branch>]
-
-<branch> must follow the format "feature/BRANCH-nnn<text>", or just BRANCH-XXX for
-delete and restart.
-
-Commands:
-  * info - get port, container name and env name of running stacks
-
-This script must be executed on a machine configured for multi-branch
-deployment.
-
-Requirements:
-  * Read-only access to the Bitbucket account
-  * An Nginx server
-  * A *.test.company.io wildcard certificate
-  * boto3 installed
+Describes the functions of the script
 
 """.format(script_name=os.path.basename(sys.argv[0])))
 
